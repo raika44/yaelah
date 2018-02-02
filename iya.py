@@ -18,51 +18,8 @@ cl = LINETCR.LINE()
 cl.login(token="Epi71af9Ht5Ki1kfRUlf.ICpPiGD6lKxQUjAskbI4lW.WmzsyphjRnTP4dc6cqW0tPFed0l+MMvyvEx6TyIHadk=")
 cl.loginResult()
 
-satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EpmkPGswRbUwM7tiHdP4.QXYHCXzQnIXP72luipN3Ha.HvNi//mpiR9Wq3M9B6dRTLrtDYPgA5sJNQn95BAg6yU=")
-satpam.loginResult()
+satpam = Kc = ko = ki = ku = kk = ks = ke = ka = kb = cl
 
-ki = LINETCR.LINE()
-ki.login(token="Ep205ooa2paIlQD4fF36.0ClDQ0XXExcmqznHTHonrG.ePxVhUViVxzDt/MTlVPoHRyXtIjYdFPSBnkQgR+GEEE=")
-ki.loginResult()
-
-kk = LINETCR.LINE()
-kk.login(token="EpMQ0BlQZFd1V1sh3BWb.56Q6F8HJ0G7hxHXo37fg6W.Czy5Ky+JBDFT6oX1cu8S6tjtBthS2RRIkRLE5exGujg=")
-kk.loginResult()
-
-ks = LINETCR.LINE()
-ks.login(token="EpPnFYjf8JgeGDjg8iN9.q+GCiS+H2/Jt0U2vphfDcq./x1OuKAPjCkxfbrJ0tJp9+HNmhwIS36urRtv9oxdnc4=")
-ks.loginResult()
-
-ka = LINETCR.LINE()
-ka.login(token="EpmkwLjzgcNxnWDiq6Zd.K2HqbjOiKELgUqJfBR1jZq.+yQZFHDaUrsRGeHBpjj7Bsk1hg18j/k//34tkC0Jd5Y=")
-ka.loginResult()
-
-kc = LINETCR.LINE()
-kc.login(token="EpsvFQLyEKWGzfVsNKm2.BM8ZzCvoIdukCQza1HyZGG.wh4j1RRd2Tc1fkaKwThiZIe6e0ty9jx3MDDexyFbZpE=")
-kc.loginResult()
-
-kb = LINETCR.LINE()
-kb.login(token="EpwWpxc0iAczxj8ieWmf.A48KdZfnSSzOHMavgsN8dW.pFZhl2M4v4kj63+BApWFIPq9EIQiU5Qg1elKDXiEc/s=")
-kb.loginResult()
-
-km = LINETCR.LINE()
-km.login(token="EpFrt6RnLUmdHBVfbwI7.qSWU/6UEE3rWWs4Pndd5jW.19GrE3gG/jGDsTPm/ZEgUA6z8HHe9Fa0l0APu6nXJ7Q=")
-km.loginResult()
-
-cl
-
-ko = ki
-
-ku = kk
-
-ks
-
-ke = ka
-
-kb
-
-kc
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -971,14 +928,11 @@ def bot(op):
             else:
                G = random.choice(KAC).getGroup(op.param1)
                G.preventJoinByTicket = False
-	       cl.updateGroup(G)
-               Ticket = cl.reissueGroupTicket(op.param1)
-               km.acceptGroupInvitationByTicket(op.param1,Ticket)
-	       G.preventJoinByTicket = True
-               km.updateGroup(G)
-               km.kickoutFromGroup(op.param1,[op.param2])
-               km.leaveGroup(op.param1)
+               cl.updateGroup(G)
+               cl.kickoutFromGroup(op.param1,[op.param2])
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+               G.preventJoinByTicket = True
+               cl.updateGroup(G)
                wait["blacklist"][op.param2] = True
                f=codecs.open('st2__b.json','w','utf-8')
                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
@@ -1345,27 +1299,6 @@ def bot(op):
                     ki.sendChatChecked(msg.to,msg.id)
                     kc.sendChatChecked(msg.to,msg.id)			
 #------------------
-
-        if op.type == 19:
-          try:	      
-            if op.param3 in Smid: #Akun Utama Ke Kick
-                if op.param2 in creator + peminjam:
-                    pass
-	        elif op.param2 in Bots:
-		    pass
-                G = random.choice(KAC).getGroup(op.param1)
-                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                G.preventJoinByTicket = False
-                random.choice(KAC).updateGroup(G)
-                Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
-                satpam.acceptGroupInvitationByTicket(op.param1,Ticket)
-                time.sleep(0.01)
-                G.preventJoinByTicket = True
-                random.choice(KAC).updateGroup(G)
-                satpam.updateGroup(G)
-                wait["blacklist"][op.param2] = True
-	  except:
-	         pass
         if op.type == 19:
 		if wait["protect"] == True:
 		    try:
